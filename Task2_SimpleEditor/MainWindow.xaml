@@ -1,0 +1,105 @@
+﻿<Window x:Class="Task2_SimpleEditor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Task2_SimpleEditor"
+        mc:Ignorable="d"
+        Title="Simple Editor" Height="450" Width="800">
+    <StackPanel>
+        
+        <WrapPanel>
+
+            <!--#region FONT SIZE DROP DOWN -->
+
+            <ComboBox Name="fontDD" Margin="10" Width="50" VerticalAlignment="Center">
+                <ItemsControl.Items>
+                    <ComboBoxItem>12</ComboBoxItem>
+                    <ComboBoxItem>16</ComboBoxItem>
+                    <ComboBoxItem>20</ComboBoxItem>
+                    <ComboBoxItem>25</ComboBoxItem>
+                    <ComboBoxItem>40</ComboBoxItem>
+                    <ComboBoxItem>50</ComboBoxItem>
+                    <ComboBoxItem>60</ComboBoxItem>
+                    <ComboBoxItem>65</ComboBoxItem>
+                </ItemsControl.Items>
+            </ComboBox>
+
+            <!--#endregion-->
+
+            <!--#region COLOR DROP DOWN -->
+
+            <ComboBox Name="colorDD" Margin="10" Width="80" VerticalAlignment="Center">
+                <ItemsControl.Items>
+
+                    <ComboBoxItem Foreground="#FFFF0000">
+                        <StackPanel Orientation="Horizontal">
+                            <Rectangle Width="20" Height="10" Fill="#FFFF0000" />
+                            <TextBlock Text="red" FontWeight="DemiBold" Margin="5" />
+                        </StackPanel>
+                    </ComboBoxItem>
+
+                    <ComboBoxItem Foreground="Blue">
+                        <StackPanel Orientation="Horizontal">
+                            <Rectangle Width="20" Height="10" Fill="Blue" />
+                            <TextBlock Text="blue" FontWeight="DemiBold" Margin="5" />
+                        </StackPanel>
+                    </ComboBoxItem>
+
+                    <ComboBoxItem Foreground="Yellow">
+                        <StackPanel Orientation="Horizontal">
+                            <Rectangle Width="20" Height="10" Fill="Yellow" />
+                            <TextBlock Text="yellow" FontWeight="DemiBold" Margin="5" />
+                        </StackPanel>
+                    </ComboBoxItem>
+
+                    <ComboBoxItem Foreground="Gray">
+                        <StackPanel Orientation="Horizontal">
+                            <Rectangle Width="20" Height="10" Fill="Gray" />
+                            <TextBlock Text="gray" FontWeight="DemiBold" Margin="5" />
+                        </StackPanel>
+                    </ComboBoxItem>
+
+                    <ComboBoxItem Foreground="Brown">
+                        <StackPanel Orientation="Horizontal">
+                            <Rectangle Width="20" Height="10" Fill="Brown" />
+                            <TextBlock Text="brown" FontWeight="DemiBold" Margin="5" />
+                        </StackPanel>
+                    </ComboBoxItem>
+
+                </ItemsControl.Items>
+            </ComboBox>
+
+            <!--#endregion-->
+
+            <!--#region ALIGNMENT DROP DOWN -->
+
+            <ComboBox Name="alignmentDD" Margin="10" Width="70" VerticalAlignment="Center">
+                <ItemsControl.Items>
+                    <ComboBoxItem >Center</ComboBoxItem>
+                    <ComboBoxItem >Left</ComboBoxItem>
+                    <ComboBoxItem >Right</ComboBoxItem>
+                    <ComboBoxItem >Justify</ComboBoxItem>
+                </ItemsControl.Items>
+            </ComboBox>
+
+            <!--#endregion-->
+            
+            <CheckBox Name="enableCB" Content="Enable" Margin="10" />
+            
+        </WrapPanel>
+
+        <TextBox 
+            AcceptsReturn="True" 
+            TextWrapping="Wrap" 
+            Height="200" 
+            BorderBrush="Blue" 
+            BorderThickness="3" 
+            FontSize="{Binding ElementName=fontDD, Path=SelectedItem.Content}" 
+            Foreground="{Binding ElementName=colorDD, Path=SelectedItem.Foreground}" 
+            TextAlignment="{Binding ElementName=alignmentDD, Path=SelectedItem.Content}" 
+            IsEnabled="{Binding ElementName=enableCB, Path=IsChecked}" 
+        />
+        
+    </StackPanel>
+</Window>
