@@ -2,7 +2,7 @@
 Using animation and binding
 
 
-Task 1 ==>  Animation simple moving ball
+Task 1 ==>  Animation-simple moving ball
 
 ![](Images/Task1.gif)
 
